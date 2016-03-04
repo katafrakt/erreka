@@ -1,4 +1,4 @@
-# Thing
+# Erreka
 
 This is a repository prepared for my project for [Daj Się Poznać 2016](http:://dajsiepoznac.pl) challenge.
 
