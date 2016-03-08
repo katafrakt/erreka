@@ -31,6 +31,7 @@ defmodule Erreka.Web do
       use Phoenix.Controller
 
       alias Erreka.Repo
+      alias Erreka.User
       import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 

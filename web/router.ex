@@ -17,7 +17,18 @@ defmodule Erreka.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/login", AuthController, :login
+    get "/register", RegistrationController, :new
+    post "/register", RegistrationController, :create
+    get "/logout", AuthController, :delete
+
+    scope "/auth" do
+      get "/:provider", AuthController, :request
+      get "/:provider/callback", AuthController, :callback
+      post "/identity/callback", AuthController, :identity_callback
+    end
   end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", Erreka do
