@@ -10,9 +10,12 @@ defmodule Erreka do
       # Start the endpoint when the application starts
       supervisor(Erreka.Endpoint, []),
       # Start the Ecto repository
-      supervisor(Erreka.Repo, []),
+      # supervisor(Erreka.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(Erreka.Worker, [arg1, arg2, arg3]),
+
+      # TODO: move config to ENV
+      worker(RethinkDatabase, [[port: 28015, host: "localhost", db: :erreka_dev]])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

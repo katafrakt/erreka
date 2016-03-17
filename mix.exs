@@ -39,7 +39,9 @@ defmodule Erreka.Mixfile do
       {:gettext, "~> 0.9"},
       {:cowboy, "~> 1.0"},
       {:ueberauth_identity, "~> 0.2"},
-      {:comeonin, "~> 2.1"}
+      {:comeonin, "~> 2.1"},
+      {:rethinkdb, "~> 0.3.0"},
+      {:rethinkdb_ecto, github: "hamiltop/rethinkdb_ecto"}
    ]
   end
 

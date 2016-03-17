@@ -30,6 +30,8 @@ defmodule Erreka.Web do
     quote do
       use Phoenix.Controller
 
+      plug Erreka.Plug.Authenticate
+
       alias Erreka.Repo
       alias Erreka.User
       import Ecto

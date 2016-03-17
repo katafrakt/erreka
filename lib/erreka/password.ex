@@ -1,5 +1,5 @@
 defmodule Erreka.Password do
-  alias Erreka.Repo
+  alias RethinkDatabase, as: RDB
   import Ecto.Changeset, only: [put_change: 3]
   import Comeonin.Bcrypt, only: [hashpwsalt: 1]
 
@@ -15,8 +15,10 @@ defmodule Erreka.Password do
     Generates the password for the changeset and then stores it to the database.
   """
   def generate_password_and_store_user(changeset) do
-    changeset
+    user_data = changeset
       |> generate_password
-      |> Repo.insert
+
+    {:ok, user} = RDB.insert(user_data)
+    user
   end
 end

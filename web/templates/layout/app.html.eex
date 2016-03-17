@@ -16,7 +16,7 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <li><a href="/login">Sign in</a></li>
           </ul>
         </nav>
         <span class="logo"></span>
@@ -28,6 +28,13 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
+
+      <hr />
+      <p>
+        <% if @current_user do %>
+        @current_user.email
+        <% end %>
+      </p>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

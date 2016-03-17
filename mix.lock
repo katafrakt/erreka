@@ -16,5 +16,7 @@
   "poolboy": {:hex, :poolboy, "1.5.1"},
   "postgrex": {:hex, :postgrex, "0.11.1"},
   "ranch": {:hex, :ranch, "1.2.1"},
+  "rethinkdb": {:hex, :rethinkdb, "0.3.2"},
+  "rethinkdb_ecto": {:git, "https://github.com/hamiltop/rethinkdb_ecto.git", "55cd697821ba17b4e5c41e8f236a1e9017eaae14", []},
   "ueberauth": {:hex, :ueberauth, "0.2.0"},
   "ueberauth_identity": {:hex, :ueberauth_identity, "0.2.3"}}
