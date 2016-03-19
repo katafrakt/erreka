@@ -31,9 +31,9 @@
 
       <hr />
       <p>
-        <% if @current_user do %>
-        @current_user.email
-        <% end %>
+        <%= if signed_in?(@conn) do
+            current_user(@conn).name
+        end %>
       </p>
 
     </div> <!-- /container -->

@@ -15,7 +15,7 @@ defmodule Erreka do
       # worker(Erreka.Worker, [arg1, arg2, arg3]),
 
       # TODO: move config to ENV
-      worker(RethinkDatabase, [[port: 28015, host: "localhost", db: :erreka_dev]])
+      worker(RethinkDatabase, [Application.get_env(:erreka, :rdb)])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

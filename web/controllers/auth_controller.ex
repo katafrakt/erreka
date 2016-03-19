@@ -53,10 +53,9 @@ defmodule Erreka.AuthController do
 
     case validate_credentials(auth.credentials, user) do
       :ok ->
-        user = %{id: auth.uid, name: user.name}
         conn
         |> put_flash(:info, "Successfully authenticated.")
-        |> put_session(:current_user, user)
+        |> put_session(:current_user, user.id)
         |> redirect(to: "/")
       :error ->
         conn

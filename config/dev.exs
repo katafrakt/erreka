@@ -40,3 +40,8 @@ config :erreka, Erreka.Repo,
   database: "erreka_dev",
   hostname: "localhost",
   pool_size: 10
+
+  config :erreka, :rdb,
+    port: 28015,
+    host: "localhost",
+    db: :erreka_dev
