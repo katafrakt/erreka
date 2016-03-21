@@ -7,9 +7,7 @@ defmodule Erreka.AuthController do
   plug Ueberauth
 
   alias Ueberauth.Strategy.Helpers
-  alias Erreka.User
-  alias RethinkDatabase, as: RDB
-  import RethinkDB.Query
+  alias Erreka.Repository.UserRepository
 
   def request(conn, _params) do
     render(conn, "request.html", callback_url: Helpers.callback_url(conn))
@@ -47,9 +45,7 @@ defmodule Erreka.AuthController do
   end
 
   def identity_callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
-    query = table("users") |>
-      filter(%{email: params["email"]})
-    user = RDB.query(User, query) |> List.first
+    user = UserRepository.find_by_email(params["email"])
 
     case validate_credentials(auth.credentials, user) do
       :ok ->
