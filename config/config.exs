@@ -34,3 +34,6 @@ config :ueberauth, Ueberauth,
       callback_methods: ["POST"]
     ]}
   ]
+
+
+config :rethinkdb_ecto, :tables, ["users", "transmissions", "messages"]

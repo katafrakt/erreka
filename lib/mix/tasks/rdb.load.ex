@@ -10,7 +10,8 @@ defmodule Mix.Tasks.Rdb.Load do
 
   def create_tables do
     RDB.start_link(Application.get_env(:erreka, :rdb))
-    Enum.each(RethinkDatabase.tables, fn(table_name) ->
+    tables = Application.get_env(:rethinkdb_ecto, :tables)
+    Enum.each(tables, fn(table_name) ->
       query = table_list
         |> contains(table_name)
         |> branch("", do_r(fn -> table_create(table_name) end))
